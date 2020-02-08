@@ -1,45 +1,32 @@
-class Employee:
-
-	def __init__(self, first, last, pay):
-		self.first = first 
-		self.last = last 
-		self.pay = pay
-
+## Using property decorator for private attributes 
+class Geeks:
+	def __init__(self):
+		self.__age = 0
+	
 	@property
-	def fullname(self):
-		return '{} {}'.format(self.first , self.last)
+	#getter
+	def age(self): 
+		print("getter method called") 
+		return self.__age 
 
-	@property
-	def email(self):
-		return '{}.{}@email.com'.format(self.first,self.last)
+	@age.setter
+	#setter
+	def age(self, a):
+		print('Setter Invoked!!')
+		self.__age = a
 
-	## setter
-	@fullname.setter
-	def fullname(self, name):
-		first, last = name.split(' ')
-		self.first = first
-		self.last = last
-
-	@fullname.deleter
-	def fullname(self):
-		print('Delete Name!!')
-		self.first = None
-		self.last = None
+	@age.deleter
+	#deleter
+	def age(self):
+		print('Deleter Invoked')
+		self.__age = 0
 	
 
+mark = Geeks()
 
-emp1 = Employee('Corey', 'Scahfer', 60000)
-
-emp1.first = 'John'
-
-emp1.fullname = 'Corey Scahfer'
-
-print(emp1.email)
-print(emp1.fullname)
-print(emp1.first)
-
-## deleter
-del emp1.fullname
+mark.age = 19
+print(mark.age)
+del mark.age
+print(mark.age)
 
 
-# print(emp1 + emp2)
