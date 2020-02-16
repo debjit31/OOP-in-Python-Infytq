@@ -1,3 +1,5 @@
+## Exception Handling in Python 
+## 1. Custom Exceptions 2. raising exceptions
 class InvalidPrice(Exception):
     pass
 
