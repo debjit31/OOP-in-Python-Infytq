@@ -1,6 +1,6 @@
-from abc import ABC, abstractmethod
+from abc import ABCMeta, abstractmethod
 ## using @abstractmethod
-class Polygon(ABC):
+class Polygon(metaclass=ABCMeta):
 	@abstractmethod
 	def sides(self):
 		pass
